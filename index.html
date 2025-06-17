@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Jasa fotografi profesional untuk prewedding, event, produk, dan dokumentasi lainnya oleh Dayat." />
+  <title>Jasa Fotografi Dayat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url(gambar/Gambar_1.jpg);
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #000000;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ffffff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #baa245;
+    }
+
+    header {
+      background-image: url();
+      background-size: cover;
+      background-position: center;
+      color: rgb(255, 255, 255);
+      padding: 100px 20px;
+    }
+
+    header h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    section {
+      padding: 60px 20px;
+      background-color: rgba(255, 255, 255, 0.295);
+      margin: 20px;
+      border-radius: 10px;
+    }
+
+    h2 {
+      color: #000000e8;
+      margin-bottom: 20px;
+    }
+
+    p {
+      max-width: 800px;
+      margin: 0 auto 20px;
+      color: rgb(0, 0, 0)
+      font-size: 18px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    ul li {
+      background-color: #fff;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-left: 4px solid #222;
+      text-align: left;
+    }
+
+    .gallery-container {
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+    }
+
+    .gallery {
+      display: inline-flex;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    form {
+      max-width: 500px;
+      margin: 20px auto;
+      text-align: left;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    form button {
+      background-color: #222;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #444;
+    }
+
+    .cta {
+      background-color: #e0c868;
+      padding: 40px 20px;
+      color: #222;
+    }
+
+    .cta h2 {
+      font-size: 32px;
+    }
+
+    .cta p {
+      font-size: 18px;
+    }
+
+    .wa-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #25d366;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .wa-button:hover {
+      background-color: #1ebd5a;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.85);
+      color: white;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* Responsivitas nav untuk mobile */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 32px;
+      }
+      .gallery img {
+        max-width: 200px;
+      }
+    }
+    @media (max-width: 480px) {
+      nav {
+        flex-direction: column;
+        padding: 10px;
+      }
+      nav a {
+        margin: 10px 0;
+      }
+    }
+
+    /* Slider Testimoni */
+    .testimonial-slider {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .testimonial {
+      display: none;
+      font-size: 18px;
+      color: #333;
+      text-align: center;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .testimonial.active {
+      display: block;
+    }
+
+    .testimonial p strong {
+      display: block;
+      margin-top: 12px;
+      color: #222;
+    }
+
+    #prevTesti, #nextTesti {
+      background-color: #efd776;
+      border: none;
+      padding: 10px 15px;
+      margin: 15px 10px 0 10px;
+      font-size: 24px;
+      cursor: pointer;
+      border-radius: 5px;
+      color: #222;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    #prevTesti:hover, #nextTesti:hover {
+      background-color: #d7c26d;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#layanan">Layanan</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#testimoni">Testimoni</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+
+  <header> 
+    <h1>Jasa Fotografi Dayat :)</h1>
+    <p>Abadikan Momen Spesialmu
+      <br>
+       dengan Profesional</p>
+  </header>
+
+  <section id="layanan">
+    <h2>Layanan Kami</h2>
+    <p>Kami menyediakan berbagai layanan fotografi berkualitas tinggi untuk segala keperluan Anda:</p>
+    <ul>
+      <li>📷 Prewedding dan Wedding</li>
+      <li>🎓 Foto Wisuda dan Keluarga</li>
+      <li>📦 Foto Produk dan UMKM</li>
+      <li>🎤 Dokumentasi Event dan Seminar</li>
+      <li>🏠 Foto Properti & Interior</li>
+    </ul>
+  </section>
+
+  <section id="galeri">
+  <h2>Galeri Foto</h2>
+  <div class="gallery-container">
+    <div class="gallery" id="gallerySlider">
+      <img src="gambar/Gambar_1.jpg" alt="Foto prewedding outdoor dengan latar belakang alam hijau" />
+      <img src="gambar/Gambar_2.jpg" alt="Foto candid keluarga di taman" />
+      <img src="gambar/Gambar_3.jpg" alt="Foto produk UMKM dengan pencahayaan alami" />
+      <img src="gambar/Gambar_4.jpg" alt="Dokumentasi event seminar indoor" />
+      <img src="gambar/Gambar_5.JPG" alt="dokumentasi">
+      <img src="gambar/Gambar_6.JPG" alt="fotografer">
+    </div>
+  </div>
+</section>
+
+
+  <section id="testimoni">
+    <h2>Testimoni Klien</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial active">
+        <p><em>"Pelayanannya cepat dan hasil fotonya keren banget! Recommended!"</em></p>
+        <p><strong>- Rina, Surabaya</strong></p>
+      </div>
+      <div class="testimonial">
+        <p><em>"Dayat fotografer andalan saya tiap ada acara keluarga. Hasilnya selalu memuaskan."</em></p>
+        <p><strong>- Bayu, Malang</strong></p>
+      </div>
+      <div class="testimonial">
+        <p><em>"Foto produk UMKM-nya bikin dagangan saya makin laris, makasih Dayat!"</em></p>
+        <p><strong>- Sari, Jakarta</strong></p>
+      </div>
+    </div>
+    <button id="prevTesti" aria-label="Testimoni sebelumnya">‹</button>
+    <button id="nextTesti" aria-label="Testimoni selanjutnya">›</button>
+  </section>
+
+  <section class="cta">
+    <h2>Siap Abadikan Momenmu?</h2>
+    <p>Hubungi kami sekarang untuk booking jadwal dan dapatkan promo menarik bulan ini!</p>
+    <a href="https://wa.me/6281234567890?text=Halo%20Dayat!%20Saya%20ingin%20booking%20jasa%20fotografi." class="wa-button" target="_blank">Chat via WhatsApp</a>
+  </section>
+
+  <section id="kontak">
+    <h2>Hubungi Kami</h2>
+    <form action="https://formspree.io/f/xayrqlkn" method="POST" id="contactForm">
+      <label for="nama">Nama:</label>
+      <input type="text" id="nama" name="nama" placeholder="Nama kamu" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Email kamu" required />
+
+      <label for="pesan">Pesan:</label>
+      <textarea id="pesan" name="pesan" rows="4" placeholder="Tulis pesan kamu di sini" required></textarea>
+
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Jasa Fotografi Dayat. Semua hak dilindungi. | 
+    Instagram: <a href="https://instagram.com/yut1707" style="color: #ffcc00; text-decoration: none;">@yut1707</a> | 
+    WA: <a href="https://wa.me/6281234567890" style="color: #ffcc00; text-decoration: none;">081338916987</a>
+    Tiktok: <a href="https://Tiktok.com/yat_17" style="color: #ffcc00; text-decoration: none;">@dythany</a>
+  </footer>
+
+  <script>
+    // Form alert submit
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(event) {
+      alert('Terima kasih sudah mengirim pesan, kami akan segera menghubungi Anda!');
+    });
+
+    // Slider testimoni
+    const testimonials = document.querySelectorAll('.testimonial');
+    const prevBtn = document.getElementById('prevTesti');
+    const nextBtn = document.getElementById('nextTesti');
+    let currentIndex = 0;
+
+    function showTestimonial(index) {
+      testimonials.forEach((t, i) => {
+        t.classList.toggle('active', i === index);
+      });
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+      showTestimonial(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % testimonials.length;
+      showTestimonial(currentIndex);
+    });
+
+    // Tampilkan testimoni pertama saat load
+    showTestimonial(currentIndex);
+  </script>
+</body>
+</html>
